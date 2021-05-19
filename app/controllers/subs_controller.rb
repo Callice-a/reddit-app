@@ -17,6 +17,13 @@ class SubsController < ApplicationController
     def new
         render component: "SubNew"
     end
+    def create
+        @sub = Sub.new(sub_params)
+        if(@sub.save)
+            redirect_to root_path
+        else
+        end
+    end
     def update
         @sub = Sub.find(params[:id])
     end
@@ -29,6 +36,9 @@ class SubsController < ApplicationController
     private
     def set_sub
         @sub = Sub.find(params[:id])
+    end
+    def sub_params
+        params.require(:sub).permit(:name)
     end
 
 end

@@ -17,6 +17,8 @@ const Subs = (props) => {
     }
     return(
         <div>
+            <br></br>
+            <a href='/subs/new'>New</a>
             <h1>{renderSubs()}</h1>
         </div>
     )
