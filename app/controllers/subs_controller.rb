@@ -12,7 +12,7 @@ class SubsController < ApplicationController
     end
     def edit
         # @sub = Sub.find(params[:id])
-        render component: "SubEdit"
+        render component: "SubEdit" , props: {sub: @sub}
     end
     def new
         render component: "SubNew"
@@ -25,7 +25,10 @@ class SubsController < ApplicationController
         end
     end
     def update
-        @sub = Sub.find(params[:id])
+        if @sub.update(sub_params)
+            redirect_to root_path
+        else
+        end
     end
     def destroy
         # @sub = Sub.find(params[:id])
